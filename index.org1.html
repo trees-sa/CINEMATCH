@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineMatch</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Smart movie recommendations</p>
+          <h1 id="page-title">CineMatch</h1>
+          <p>
+            Choose your mood, genre, and time limit to get a ranked list of
+            movies for tonight.
+          </p>
+        </div>
+
+        <form class="finder" id="finder">
+          <label>
+            Mood
+            <select id="mood">
+              <option value="any">Any mood</option>
+              <option value="fun">Fun</option>
+              <option value="comfort">Comfort</option>
+              <option value="romantic">Romantic</option>
+              <option value="thoughtful">Thoughtful</option>
+              <option value="intense">Intense</option>
+            </select>
+          </label>
+
+          <label>
+            Genre
+            <select id="genre">
+              <option value="any">Any genre</option>
+              <option value="Action">Action</option>
+              <option value="Animation">Animation</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Drama">Drama</option>
+              <option value="Romance">Romance</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Thriller">Thriller</option>
+            </select>
+          </label>
+
+          <label>
+            Maximum runtime
+            <select id="runtime">
+              <option value="999">Any length</option>
+              <option value="100">Under 100 minutes</option>
+              <option value="120">Under 2 hours</option>
+              <option value="150">Under 2.5 hours</option>
+            </select>
+          </label>
+
+          <label>
+            Minimum rating
+            <input id="rating" type="range" min="6" max="9" step="0.1" value="7" />
+            <span id="ratingValue">7.0+</span>
+          </label>
+        </form>
+      </section>
+
+      <section class="toolbar" aria-label="Recommendation controls">
+        <div>
+          <strong id="resultCount">0 movies</strong>
+          <span>matched your taste</span>
+        </div>
+        <div class="toolbar-actions">
+          <button id="surprise" type="button">Surprise me</button>
+          <button id="clearWatchlist" type="button">Clear watchlist</button>
+        </div>
+      </section>
+
+      <section class="featured" id="featured" aria-live="polite"></section>
+
+      <section class="layout-grid">
+        <section>
+          <div class="section-title">
+            <p class="eyebrow">Recommendations</p>
+            <h2>Best matches</h2>
+          </div>
+          <div class="movie-grid" id="movieGrid" aria-label="Movie recommendations"></div>
+        </section>
+
+        <aside class="watchlist-panel">
+          <div class="section-title">
+            <p class="eyebrow">Saved</p>
+            <h2>Watchlist</h2>
+          </div>
+          <div id="watchlist" class="watchlist" aria-live="polite"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
